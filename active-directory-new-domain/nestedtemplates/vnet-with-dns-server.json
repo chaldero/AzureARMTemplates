@@ -5,7 +5,7 @@
   "resources": [
     {
       "type": "Microsoft.Network/virtualNetworks",
-      "name": "vnet-arcadeBeta-shared-northch-01-TEST",
+      "name": "vnet-arcadeBeta-shared-northch-01",
       "apiVersion": "2019-02-01",
       "location": "[resourceGroup().location]",
       "properties": {
