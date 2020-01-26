@@ -84,7 +84,7 @@
         ADDomain FirstDC 
         {
             DomainName                      = $DomainName
-            DomainNetbiosName               = 
+            DomainNetbiosName               = $DomainNetbios
             Credential                      = $DomainCreds
             SafemodeAdministratorPassword   = $DomainCreds
 	        DependsOn                       = "[WindowsFeature]ADDSInstall"

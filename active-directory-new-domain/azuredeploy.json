@@ -132,7 +132,8 @@
                                 "AdminCreds": {
                                     "UserName": "chef",
                                     "Password": "PrivateSettingsRef:AdminPassword"
-                                }
+                                },
+                                "AllowModuleOverwrite": true
                             }
                         },
                         "protectedSettings": {
