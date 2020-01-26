@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "variables": {
         "virtualNetworkName": "vnet-arcadeBeta-shared-northch-01",
-        "adNicName": "vsabedc01",
+        "adNicName": "vsabedc01-nic",
         "adNicIPAddress": "10.1.5.4",
         "adVMName": "vsabedc01",
         "adSubnetName": "AD",
@@ -111,7 +111,7 @@
                     "name": "CreateADForest",
                     "location": "[resourceGroup().location]",
                     "dependsOn": [
-                        "[variables('adVMName')]"
+                        "[resourceId('Microsoft.Compute/virtualMachines', variables('adVMName'))]"
                     ],
                     "properties": {
                         "publisher": "Microsoft.Powershell",

@@ -12,7 +12,7 @@
         [Int]$RetryIntervalSec=30
     ) 
     
-    Import-DscResource -ModuleName xActiveDirectory, xStorage, xNetworking, PSDesiredStateConfiguration, xPendingReboot
+    Import-DscResource -ModuleName ActiveDirectoryDsc, NetworkingDsc, PSDesiredStateConfiguration, PendingReboot
     [System.Management.Automation.PSCredential ]$DomainCreds = New-Object System.Management.Automation.PSCredential ("${DomainName}\$($Admincreds.UserName)", $Admincreds.Password)
     $Interface=Get-NetAdapter|Where Name -Like "Ethernet*"|Select-Object -First 1
     $InterfaceAlias=$($Interface.Name)
@@ -48,11 +48,12 @@
             DependsOn = "[WindowsFeature]DNS"
 	    }
 
-        xDnsServerAddress DnsServerAddress 
+        DnsServerAddress DnsServerAddress 
         { 
             Address        = '127.0.0.1' 
             InterfaceAlias = $InterfaceAlias
             AddressFamily  = 'IPv4'
+            Validate       = $false
 	        DependsOn = "[WindowsFeature]DNS"
         }
 
@@ -77,7 +78,7 @@
             DependsOn = "[WindowsFeature]ADDSInstall"
         }
          
-        xADDomain FirstDS 
+        ADDomain FirstDC 
         {
             DomainName = $DomainName
             DomainAdministratorCredential = $DomainCreds
