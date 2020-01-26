@@ -8,7 +8,9 @@
         "adVMName": "vsabedc01",
         "adSubnetName": "AD",
         "adAvailabilitySetName": "avs-ADDC",
-        "adVMSize": "Standard_B2s"
+        "adVMSize": "Standard_B2s",
+        "domain": "ad.arcadebeta.ch",
+        "domainNetbios": "ARCADEBETA"
     },
     "resources": [
         {
@@ -125,7 +127,8 @@
                                 "function": "CreateADPDC"
                             },
                             "configurationArguments": {
-                                "DomainName": "ad.arcadebeta.ch",
+                                "DomainName": "[variables('domain')]",
+                                "DomainNetbios": "[variables('domainNetbios')]",
                                 "AdminCreds": {
                                     "UserName": "chef",
                                     "Password": "PrivateSettingsRef:AdminPassword"

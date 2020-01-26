@@ -6,6 +6,9 @@
         [String]$DomainName,
 
         [Parameter(Mandatory)]
+        [String]$DomainNetbios,
+
+        [Parameter(Mandatory)]
         [System.Management.Automation.PSCredential]$Admincreds,
 
         [Int]$RetryCount=20,
@@ -80,10 +83,11 @@
          
         ADDomain FirstDC 
         {
-            DomainName = $DomainName
-            DomainAdministratorCredential = $DomainCreds
-            SafemodeAdministratorPassword = $DomainCreds
-	        DependsOn = "[WindowsFeature]ADDSInstall"
+            DomainName                      = $DomainName
+            DomainNetbiosName               = 
+            Credential                      = $DomainCreds
+            SafemodeAdministratorPassword   = $DomainCreds
+	        DependsOn                       = "[WindowsFeature]ADDSInstall"
         } 
 
    }
