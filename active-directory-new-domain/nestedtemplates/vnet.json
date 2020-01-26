@@ -1,0 +1,46 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "type": "Microsoft.Network/virtualNetworks",
+      "name": "vnet-arcadeBeta-shared-northch-01-TEST",
+      "apiVersion": "2019-02-01",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "10.1.0.0/16"
+          ]
+        },
+        "subnets": [
+          {
+            "name": "AD",
+            "properties": {
+              "addressPrefix": "10.1.5.0/24"
+            }
+          },
+          {
+            "name": "LAN",
+            "properties": {
+              "addressPrefix": "10.1.10.0/24"
+            }
+          },
+          {
+            "name": "VirtualClients",
+            "properties": {
+              "addressPrefix": "10.1.20.0/24"
+            }
+          },
+          {
+            "name": "DMZ",
+            "properties": {
+              "addressPrefix": "10.1.30.0/24"
+            }
+          },                   
+
+        ]
+      }
+    }
+  ]
+}
