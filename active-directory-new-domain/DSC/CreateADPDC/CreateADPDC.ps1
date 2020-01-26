@@ -80,7 +80,6 @@
             Name = "RSAT-AD-AdminCenter"
             DependsOn = "[WindowsFeature]ADDSInstall"
         }
-         <#
         ADDomain FirstDC 
         {
             DomainName                      = $DomainName
@@ -89,7 +88,5 @@
             SafemodeAdministratorPassword   = $Admincreds
 	        DependsOn                       = "[WindowsFeature]ADDSInstall"
         } 
-        #>
-
    }
 } 

@@ -120,6 +120,7 @@
                         "type": "DSC",
                         "typeHandlerVersion": "2.77",
                         "autoUpgradeMinorVersion": true,
+                        "forceUpdateTag": "1.1",
                         "settings": {
                             "configuration": {
                                 "url": "https://raw.githubusercontent.com/chaldero/AzureARMTemplates/master/active-directory-new-domain/DSC/CreateADPDC.zip",
@@ -132,8 +133,7 @@
                                 "AdminCreds": {
                                     "UserName": "chef",
                                     "Password": "PrivateSettingsRef:AdminPassword"
-                                },
-                                "AllowModuleOverwrite": true
+                                }
                             }
                         },
                         "protectedSettings": {
