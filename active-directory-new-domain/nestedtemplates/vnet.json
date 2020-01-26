@@ -37,7 +37,7 @@
             "properties": {
               "addressPrefix": "10.1.30.0/24"
             }
-          },                   
+          }                   
 
         ]
       }
