@@ -85,8 +85,8 @@
         {
             DomainName                      = $DomainName
             DomainNetbiosName               = $DomainNetbios
-            Credential                      = $DomainCreds
-            SafemodeAdministratorPassword   = $DomainCreds
+            Credential                      = $Admincreds
+            SafemodeAdministratorPassword   = $Admincreds
 	        DependsOn                       = "[WindowsFeature]ADDSInstall"
         } 
 
